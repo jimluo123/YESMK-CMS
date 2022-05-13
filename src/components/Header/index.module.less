@@ -1,0 +1,36 @@
+@import url('../../style/variable.less');
+
+.navHeader{
+  height: 60px!important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 0 24px!important;
+  background: #fff!important;
+  box-shadow: @box-shadow;
+  z-index: 0;
+  .headerLeft{
+    width: 300px;
+  }
+  .headerRight{
+    display: flex;
+    height: 100%;
+    align-items: center;
+    .rightItem{
+      height: 100%;
+      display: flex;
+      align-items: center;
+
+      .tag{
+        font-size: 20px;
+        margin: 0 20px;
+      }
+      .userName{
+        color: #666;
+        font-size: 20px;
+        margin: 0 10px;
+      }
+    }
+  }
+}
