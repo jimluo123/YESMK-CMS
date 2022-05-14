@@ -1,16 +1,16 @@
-import React from 'react';
-import Routes from '@/router'
-import './App.css';
-const { HashRouter, Switch } = require("react-router-dom");
+import React from "react";
+import Routes from "@/router";
+import "./App.css";
+const { BrowserRouter, Switch } = require("react-router-dom");
 
 const App: React.FC = (props): any => {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <Switch>
         <Routes auth={{}} />
       </Switch>
-    </HashRouter>
-  )
-}
+    </BrowserRouter>
+  );
+};
 
 export default App;
