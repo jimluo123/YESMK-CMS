@@ -1,5 +1,5 @@
-import { type } from 'os'
-import { ReactElement, ReactNode, ReactChildren } from 'react'
+import { type } from "os";
+import { ReactElement, ReactNode, ReactChildren } from "react";
 
 /**
  * 分页参数
@@ -69,7 +69,7 @@ export type VerifyCodeProps = {
   width?: number;
   height?: number;
   length?: number;
-}
+};
 
 /**
  * 用户信息
@@ -88,7 +88,7 @@ export interface UserInfo {
  */
 export interface OptionType {
   label: string;
-  value: number | string
+  value: number | string;
 }
 
 /**
@@ -100,7 +100,7 @@ export interface SearchItemType {
   label?: string;
   initialValue?: any;
   options?: any[];
-  placeholder?: string
+  placeholder?: string;
 }
 
 /**
@@ -119,7 +119,7 @@ export interface OrderType {
 /**
  * 订单详情
  */
- export interface OrderDetail {
+export interface OrderDetail {
   orderId: number;
   orderNo: number | null;
   orderStatus: string;
@@ -136,7 +136,7 @@ export interface OrderType {
 /**
  * 商品
  */
- export interface GoodsType {
+export interface GoodsType {
   key?: number;
   goodsId: number;
   goodsDesc: string;
@@ -145,4 +145,70 @@ export interface OrderType {
   goodsPrice: number;
   goodsStock: number;
   createTime: string;
+}
+
+// 客户
+export interface customer {
+  id: string;
+  name: string;
+  account: string;
+  password: string;
+  avatar: string;
+  isPro: boolean;
+  credit: number;
+  address: string;
+  create_time: number;
+  modified_time: number;
+}
+
+// 商铺
+export interface store {
+  id: string;
+  name: string;
+  description: string;
+  avatar: string;
+  create_time: number;
+  modified_time: number;
+}
+
+// 商品
+export interface product {
+  id: string;
+  store_id: string;
+  name: string;
+  pictures: Array<string>;
+  category: string;
+  price: number;
+  isPublished: boolean;
+  description: string;
+  stock: number;
+  create_time: number;
+  modified_time: number;
+}
+
+// 订单
+export interface order {
+  id: string;
+  state: number;
+  total: number;
+  discounted_price: number;
+  payment: string;
+  customer_id: string;
+  customer_name: string;
+  customer_phone_number: string;
+  customer_address: string;
+  product_id: string;
+  product_counts: number;
+  product_price_each: number;
+  create_time: number;
+  modified_time: number;
+}
+
+// 积分
+export interface credit {
+  id: string;
+  customer_id: string;
+  credit_flow: number;
+  create_time: number;
+  modified_time: number;
 }
