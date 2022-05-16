@@ -41,7 +41,6 @@ import {
   paymentTypelList,
 } from "@/config/dataList";
 import { getOrders } from "@/api";
-import getData from "../../server";
 
 echarts.use([
   TitleComponent,
@@ -66,7 +65,6 @@ type ECOption = echarts.ComposeOption<
 >;
 
 const Dashboard: React.FC = () => {
-  console.log(getData());
   const salesRef = useRef<any>(null);
   const salesChartRef = useRef<any>(null);
   const distributedRef = useRef<any>(null);

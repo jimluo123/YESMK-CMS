@@ -21,7 +21,7 @@ type SubmitValues = {
   remember: boolean;
 };
 
-const Login: FC = (): ReactElement => {
+const Register: FC = (): ReactElement => {
   const history = useHistory();
   const [form] = Form.useForm();
   const [verifyImgCode, setVerifyImgCode] = useState<string>();
@@ -101,6 +101,24 @@ const Login: FC = (): ReactElement => {
             }
           />
         </Form.Item>
+        <Form.Item
+          name="password"
+          rules={[
+            {
+              required: true,
+              message: "请确认输入密码",
+            },
+          ]}
+        >
+          <Input.Password
+            size="large"
+            placeholder="请再次输入密码"
+            prefix={<LockOutlined className="site-form-item-icon" />}
+            iconRender={(visible) =>
+              visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
+            }
+          />
+        </Form.Item>
         <Form.Item style={{ marginBottom: "10px" }}>
           <Input.Group className={styles.verify}>
             <Form.Item
@@ -146,7 +164,7 @@ const Login: FC = (): ReactElement => {
             loading={loading}
             block
           >
-            登 录
+            注 册
           </Button>
         </Form.Item>
       </Form>
@@ -154,4 +172,4 @@ const Login: FC = (): ReactElement => {
   );
 };
 
-export default Login;
+export default Register;

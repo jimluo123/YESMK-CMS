@@ -1,6 +1,11 @@
-
 import React from "react";
-import { UserOutlined, HomeOutlined, ShopOutlined, AppstoreOutlined, OrderedListOutlined   } from '@ant-design/icons';
+import {
+  UserOutlined,
+  HomeOutlined,
+  ShopOutlined,
+  AppstoreOutlined,
+  OrderedListOutlined,
+} from "@ant-design/icons";
 import Login from "@/views/login";
 import Dashboard from "@/views/dashboard";
 import HomeCarousel from "@/views/homeManage/homeCarousel";
@@ -11,14 +16,15 @@ import GoodsCategory from "@/views/goodsManage/category";
 import Goods from "@/views/goodsManage/goods";
 import Orders from "@/views/orderManage/orders";
 import OrderDetail from "@/views/orderManage/detail";
-import NotFound from '@/views/404';
+import NotFound from "@/views/404";
+import Register from "@/views/register";
 export interface routeType {
   path: string;
   name: string;
   meta?: {
-    title: string,
-    icon?: any,
-    hideMenu?: boolean
+    title: string;
+    icon?: any;
+    hideMenu?: boolean;
   };
   render?(): void;
   component?: React.FC;
@@ -30,144 +36,148 @@ export interface routeType {
 // 非菜单路由
 const otherRoutes: Array<routeType> = [
   {
-    path: '/login',
-    name: 'login',
+    path: "/login",
+    name: "login",
     meta: {
-      title: '登录'
+      title: "登录",
     },
-    component: Login
+    component: Login,
   },
   {
-    path: '/404',
-    name: '404',
+    path: "/register",
+    name: "register",
     meta: {
-      title: 'not found'
+      title: "注册",
     },
-    component: NotFound
+    component: Register,
   },
-]
+  {
+    path: "/404",
+    name: "404",
+    meta: {
+      title: "not found",
+    },
+    component: NotFound,
+  },
+];
 
 // 左侧菜单路由
 const navRoutes: Array<routeType> = [
   {
-    path: '/dashboard',
-    name: 'dashboard',
+    path: "/dashboard",
+    name: "dashboard",
     meta: {
-      title: 'Dashboard',
-      icon: <HomeOutlined />
+      title: "Dashboard",
+      icon: <HomeOutlined />,
     },
-    component: Dashboard
+    component: Dashboard,
   },
   {
-    path: '/home-manage',
-    name: 'home-manage',
+    path: "/home-manage",
+    name: "home-manage",
     meta: {
-      title: '首页管理',
-      icon: <ShopOutlined />
+      title: "首页管理",
+      icon: <ShopOutlined />,
     },
     routes: [
       {
-        path: '/home-manage/home-carousel',
-        name: 'home-carousel',
+        path: "/home-manage/home-carousel",
+        name: "home-carousel",
         meta: {
-          title: '首页轮播'
+          title: "首页轮播",
         },
-        component: HomeCarousel
+        component: HomeCarousel,
       },
       {
-        path: '/home-manage/home-recomend',
-        name: 'home-recomend',
+        path: "/home-manage/home-recomend",
+        name: "home-recomend",
         meta: {
-          title: '首页推荐'
+          title: "首页推荐",
         },
-        component: HomeRecommend
+        component: HomeRecommend,
       },
-    ]
+    ],
   },
   {
-    path: '/goods-manage',
-    name: 'goods-manage',
+    path: "/goods-manage",
+    name: "goods-manage",
     meta: {
-      title: '商品管理',
-      icon: <AppstoreOutlined />
+      title: "商品管理",
+      icon: <AppstoreOutlined />,
     },
     routes: [
       {
-        path: '/goods-manage/goods',
-        name: 'goods',
+        path: "/goods-manage/goods",
+        name: "goods",
         meta: {
-          title: '商品列表'
+          title: "商品列表",
         },
-        component: Goods
+        component: Goods,
       },
       {
-        path: '/goods-manage/category',
-        name: 'category',
+        path: "/goods-manage/category",
+        name: "category",
         meta: {
-          title: '商品分类'
+          title: "商品分类",
         },
-        component: GoodsCategory
+        component: GoodsCategory,
       },
       {
-        path: '/goods-manage/goods-edit',
-        name: 'goods-edit',
+        path: "/goods-manage/goods-edit",
+        name: "goods-edit",
         meta: {
-          title: '商品编辑',
-          hideMenu: true
+          title: "商品编辑",
+          hideMenu: true,
         },
-        component: GoodsEdit
+        component: GoodsEdit,
       },
-    ]
+    ],
   },
   {
-    path: '/order-manage',
-    name: 'order-manage',
+    path: "/order-manage",
+    name: "order-manage",
     meta: {
-      title: '订单管理',
-      icon: <OrderedListOutlined />
+      title: "订单管理",
+      icon: <OrderedListOutlined />,
     },
     routes: [
       {
-        path: '/order-manage/all-order',
-        name: 'all-order',
+        path: "/order-manage/all-order",
+        name: "all-order",
         meta: {
-          title: '订单列表'
+          title: "订单列表",
         },
-        component: Orders
+        component: Orders,
       },
       {
-        path: '/order-manage/order-detail/:orderId',
-        name: 'order-detail',
+        path: "/order-manage/order-detail/:orderId",
+        name: "order-detail",
         meta: {
-          title: '订单详情',
-          hideMenu: true
+          title: "订单详情",
+          hideMenu: true,
         },
-        component: OrderDetail
-      }
-    ]
+        component: OrderDetail,
+      },
+    ],
   },
   {
-    path: '/user-manage',
-    name: 'user-manage',
+    path: "/user-manage",
+    name: "user-manage",
     meta: {
-      title: '用户管理',
-      icon: <UserOutlined />
+      title: "用户管理",
+      icon: <UserOutlined />,
     },
     routes: [
       {
-        path: '/user-manage/user-info',
-        name: 'user-info',
+        path: "/user-manage/user-info",
+        name: "user-info",
         meta: {
-          title: '用户信息'
+          title: "用户信息",
         },
-        component: UserInfo
-      }
-    ]
+        component: UserInfo,
+      },
+    ],
   },
-]
+];
 
-
-export {
-  otherRoutes,
-  navRoutes
-}
+export { otherRoutes, navRoutes };

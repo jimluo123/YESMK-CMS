@@ -38,6 +38,7 @@ export interface BodyCardProps {
   title?: string;
   subTitle?: string;
   extra?: ReactNode;
+  children: ReactNode;
   showFooter?: boolean;
   onSubmit?(values: any): void;
   onRefresh?(): void;

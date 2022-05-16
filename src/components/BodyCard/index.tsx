@@ -1,21 +1,29 @@
-import React, { FC } from 'react'
-import { PageHeader, Button } from 'antd'
-import { SyncOutlined } from '@ant-design/icons'
-import { BodyCardProps } from '@/types'
-import styles from './index.module.less'
-const { useHistory } = require('react-router-dom')
+import React, { FC } from "react";
+import { PageHeader, Button } from "antd";
+import { SyncOutlined } from "@ant-design/icons";
+import { BodyCardProps } from "@/types";
+import styles from "./index.module.less";
+const { useHistory } = require("react-router-dom");
 
 const BodyCard: FC<BodyCardProps> = (props) => {
-  const { title, subTitle, extra, children, showFooter = true, onSubmit, onRefresh } = props
-  const history = useHistory()
+  const {
+    title,
+    subTitle,
+    extra,
+    children,
+    showFooter = true,
+    onSubmit,
+    onRefresh,
+  } = props;
+  const history = useHistory();
 
   const goBack = () => {
-    history.goBack()
-  }
+    history.goBack();
+  };
 
   const refresh = () => {
-    onRefresh && onRefresh()
-  }
+    onRefresh && onRefresh();
+  };
 
   return (
     <div className={styles.wrapper}>
@@ -26,24 +34,31 @@ const BodyCard: FC<BodyCardProps> = (props) => {
         subTitle={subTitle}
         extra={[
           extra,
-          <Button shape="round" icon={<SyncOutlined />} key="refresh" onClick={refresh}>刷新</Button>
+          <Button
+            shape="round"
+            icon={<SyncOutlined />}
+            key="refresh"
+            onClick={refresh}
+          >
+            刷新
+          </Button>,
         ]}
       />
-      <div className={styles.main}>
-        {children}
-      </div>
-      {
-        showFooter && <div className={styles.footer}>
-        <Button onClick={goBack}>
-          取消
-        </Button>
-        <Button type="primary" style={{ margin: '0 10px' }} onClick={onSubmit}>
-          保存
-        </Button>
-      </div>
-      }
+      <div className={styles.main}>{children}</div>
+      {showFooter && (
+        <div className={styles.footer}>
+          <Button onClick={goBack}>取消</Button>
+          <Button
+            type="primary"
+            style={{ margin: "0 10px" }}
+            onClick={onSubmit}
+          >
+            保存
+          </Button>
+        </div>
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default BodyCard
+export default BodyCard;
