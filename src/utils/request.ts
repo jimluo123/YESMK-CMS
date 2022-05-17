@@ -9,7 +9,7 @@ import {
   TOKEN_EXPIRED,
 } from "@/config/api";
 import { message, Modal } from "antd";
-import { showLoading, hideLoading} from './loading'
+import { showLoading, hideLoading } from "./loading";
 
 class httpRequest {
   options: any;
@@ -57,7 +57,7 @@ class httpRequest {
     instance.interceptors.request.use(
       (config: any) => {
         const token = getToken();
-        !options.noLoading && showLoading()
+        !options.noLoading && showLoading();
         if (!isNull(token)) {
           config.headers.Authorization = `Bearer ${token}`;
         } else {
@@ -73,7 +73,7 @@ class httpRequest {
     // 响应拦截
     instance.interceptors.response.use(
       (res: any) => {
-        hideLoading()
+        hideLoading();
         if (options.isUnCheck) {
           return {
             msg: "",
@@ -89,9 +89,9 @@ class httpRequest {
             Modal.warning({
               title: "请登录后再进行操作",
               onOk() {
-                const hash = window.location.hash
-                const path = hash ? `#/login?redirect=${hash}` : '#/dashboard'
-                window.location.replace(path)
+                const hash = window.location.hash;
+                const path = hash ? `#/login?redirect=${hash}` : "#/dashboard";
+                window.location.replace(path);
               },
             });
           } else if (data.code === TOKEN_EXPIRED) {
@@ -99,9 +99,9 @@ class httpRequest {
             Modal.warning({
               title: "登录状态已失效，请重新登录",
               onOk() {
-                const hash = window.location.hash.substr(1)
-                const path = hash ? `#/login?redirect=${hash}` : '#/dashboard'
-                window.location.replace(path)
+                const hash = window.location.hash.substr(1);
+                const path = hash ? `#/login?redirect=${hash}` : "#/dashboard";
+                window.location.replace(path);
               },
             });
           } else if (data.code === 400) {
@@ -115,7 +115,7 @@ class httpRequest {
         return data;
       },
       (error: any) => {
-        hideLoading()
+        hideLoading();
         let err = {
           code: -1,
           msg: "服务器异常",
@@ -148,7 +148,7 @@ class httpRequest {
               strMsg.push(errData[errKey]);
             }
           }
-          err.msg = strMsg.join("；") || "请求参数不合法";
+          err.msg = strMsg.join(";") || "请求参数不合法";
         }
 
         message.error(err.msg);
@@ -158,9 +158,15 @@ class httpRequest {
   }
 
   // 请求实例
-  request(method: string, url: string, data: any, options: any, paramsType?: string) {
+  request(
+    method: string,
+    url: string,
+    data: any,
+    options: any,
+    paramsType?: string
+  ) {
     options = Object.assign({}, options);
-    paramsType = paramsType || 'data';
+    paramsType = paramsType || "data";
     options[paramsType] = data;
     options.method = method;
     options["url"] = url;
@@ -173,22 +179,22 @@ class httpRequest {
 
   // get请求实例
   get(url: string, params?: any, options?: any) {
-    return this.request('GET', url, params, options, 'params')
+    return this.request("GET", url, params, options, "params");
   }
 
   // post请求实例
   post(url: string, data?: any, options?: any) {
-    return this.request('POST', url, data, options)
+    return this.request("POST", url, data, options);
   }
 
   // put请求实例
   put(url: string, data?: any, options?: any) {
-    return this.request('PUT', url, data, options)
+    return this.request("PUT", url, data, options);
   }
 
   // delete请求实例
   delete(url: string, data?: any, options?: any) {
-    return this.request('DELETE', url, data, options)
+    return this.request("DELETE", url, data, options);
   }
 }
 

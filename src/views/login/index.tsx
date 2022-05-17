@@ -73,14 +73,14 @@ const Login: FC = (): ReactElement => {
           rules={[
             {
               required: true,
-              message: "请输入用户名",
+              message: "请输入账户",
             },
           ]}
         >
           <Input
             size="large"
             prefix={<UserOutlined className="site-form-item-icon" />}
-            placeholder="用户名"
+            placeholder="账户"
           />
         </Form.Item>
         <Form.Item

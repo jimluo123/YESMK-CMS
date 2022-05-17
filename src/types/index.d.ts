@@ -151,6 +151,7 @@ export interface GoodsType {
 // 客户
 export interface customer {
   id: string;
+  type: number;
   name: string;
   account: string;
   password: string;
@@ -158,16 +159,7 @@ export interface customer {
   isPro: boolean;
   credit: number;
   address: string;
-  create_time: number;
-  modified_time: number;
-}
-
-// 商铺
-export interface store {
-  id: string;
-  name: string;
   description: string;
-  avatar: string;
   create_time: number;
   modified_time: number;
 }

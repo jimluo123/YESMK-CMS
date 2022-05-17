@@ -1,18 +1,24 @@
-import { UserInfo } from '@/types';
-import http from '@/utils/request';
+import { UserInfo } from "@/types";
+import http from "@/utils/request";
 
 /**
  * 登录
- * @param data 
- * @returns 
+ * @param data
+ * @returns
  */
 export const login = (data?: any) => {
   return http.post(`/admin/login`, data, { noLoading: true });
 };
 
+export const register = (data?: any) => {
+  return http.post(`/admin/register/`, data, {
+    noLoading: true,
+  });
+};
+
 /**
  * 退出登录
- * @returns 
+ * @returns
  */
 export const logout = () => {
   return http.post(`/admin/logout`);
@@ -20,7 +26,7 @@ export const logout = () => {
 
 /**
  * 用户信息
- * @returns 
+ * @returns
  */
 export const getUserInfo = () => {
   return http.get(`/admin/user`, null, { noLoading: true });
@@ -28,8 +34,8 @@ export const getUserInfo = () => {
 
 /**
  * 修改用户信息
- * @param data 
- * @returns 
+ * @param data
+ * @returns
  */
 export const updateUserInfo = (data: UserInfo) => {
   return http.put(`/admin/user`, data);
@@ -37,8 +43,8 @@ export const updateUserInfo = (data: UserInfo) => {
 
 /**
  * 重置密码
- * @param data 
- * @returns 
+ * @param data
+ * @returns
  */
 export const resetPassword = (data: any) => {
   return http.put(`/admin/user/reset`, data);
@@ -46,9 +52,9 @@ export const resetPassword = (data: any) => {
 
 /**
  * 轮播图列表
- * @param data 
- * @param options 
- * @returns 
+ * @param data
+ * @param options
+ * @returns
  */
 export const getHomeCarousel = (data?: any, options?: any) => {
   return http.get(`/admin/home-manage/carousels`, data, options);
@@ -56,8 +62,8 @@ export const getHomeCarousel = (data?: any, options?: any) => {
 
 /**
  * 首页轮播图新增
- * @param data 
- * @returns 
+ * @param data
+ * @returns
  */
 export const addHomeCarousel = (data?: any) => {
   return http.post(`/admin/home-manage/carousels`, data);
@@ -65,8 +71,8 @@ export const addHomeCarousel = (data?: any) => {
 
 /**
  * 首页轮播图更新（修改、上下架、删除）
- * @param data 
- * @returns 
+ * @param data
+ * @returns
  */
 export const updateHomeCarousel = (data?: any) => {
   return http.put(`/admin/home-manage/carousels`, data);
@@ -74,9 +80,9 @@ export const updateHomeCarousel = (data?: any) => {
 
 /**
  * 首页推荐列表
- * @param data 
- * @param options 
- * @returns 
+ * @param data
+ * @param options
+ * @returns
  */
 export const getRecommends = (data?: any, options?: any) => {
   return http.get(`/admin/home-manage/recommend`, data, options);
@@ -84,8 +90,8 @@ export const getRecommends = (data?: any, options?: any) => {
 
 /**
  * 首页推荐新增
- * @param data 
- * @returns 
+ * @param data
+ * @returns
  */
 export const addRecommend = (data?: any) => {
   return http.post(`/admin/home-manage/recommend`, data);
@@ -93,8 +99,8 @@ export const addRecommend = (data?: any) => {
 
 /**
  * 首页推荐编辑
- * @param data 
- * @returns 
+ * @param data
+ * @returns
  */
 export const updateRecommend = (data?: any) => {
   return http.put(`/admin/home-manage/recommend`, data);
@@ -102,8 +108,8 @@ export const updateRecommend = (data?: any) => {
 
 /**
  * 首页推荐删除
- * @param id 
- * @returns 
+ * @param id
+ * @returns
  */
 export const deleteRecommend = (id?: number) => {
   return http.delete(`/admin/home-manage/recommend/${id}`);
@@ -111,9 +117,9 @@ export const deleteRecommend = (id?: number) => {
 
 /**
  * 商品列表
- * @param data 
- * @param options 
- * @returns 
+ * @param data
+ * @param options
+ * @returns
  */
 export const getGoods = (data?: any, options?: any) => {
   return http.get(`/admin/goods-manage/goods/list`, data, options);
@@ -121,9 +127,9 @@ export const getGoods = (data?: any, options?: any) => {
 
 /**
  * 商品新增
- * @param data 
- * @param options 
- * @returns 
+ * @param data
+ * @param options
+ * @returns
  */
 export const addGoods = (data?: any, options?: any) => {
   return http.post(`/admin/goods-manage/goods`, data, options);
@@ -131,9 +137,9 @@ export const addGoods = (data?: any, options?: any) => {
 
 /**
  * 商品修改
- * @param data 
- * @param options 
- * @returns 
+ * @param data
+ * @param options
+ * @returns
  */
 export const updateGoods = (data?: any, options?: any) => {
   return http.put(`/admin/goods-manage/goods`, data, options);
@@ -141,9 +147,9 @@ export const updateGoods = (data?: any, options?: any) => {
 
 /**
  * 商品状态修改
- * @param data 
- * @param options 
- * @returns 
+ * @param data
+ * @param options
+ * @returns
  */
 export const updateGoodsStatus = (data?: any, options?: any) => {
   return http.put(`/admin/goods-manage/goods/status`, data, options);
@@ -151,8 +157,8 @@ export const updateGoodsStatus = (data?: any, options?: any) => {
 
 /**
  * 删除商品
- * @param goodsId 
- * @returns 
+ * @param goodsId
+ * @returns
  */
 export const deleteGoods = (goodsId: number) => {
   return http.delete(`/admin/goods-manage/goods/${goodsId}`);
@@ -160,8 +166,8 @@ export const deleteGoods = (goodsId: number) => {
 
 /**
  * 商品详情
- * @param goodsId 
- * @returns 
+ * @param goodsId
+ * @returns
  */
 export const goodsDetial = (goodsId: number) => {
   return http.get(`/admin/goods-manage/goods/${goodsId}`);
@@ -169,9 +175,9 @@ export const goodsDetial = (goodsId: number) => {
 
 /**
  * 商品分类列表
- * @param data 
- * @param options 
- * @returns 
+ * @param data
+ * @param options
+ * @returns
  */
 export const getGoodsCategorys = (data?: any, options?: any) => {
   return http.get(`/admin/goods-manage/category/list`, data, options);
@@ -179,9 +185,9 @@ export const getGoodsCategorys = (data?: any, options?: any) => {
 
 /**
  * 新增商品分类
- * @param data 
- * @param options 
- * @returns 
+ * @param data
+ * @param options
+ * @returns
  */
 export const addGoodsCategory = (data?: any, options?: any) => {
   return http.post(`/admin/goods-manage/category`, data, options);
@@ -189,9 +195,9 @@ export const addGoodsCategory = (data?: any, options?: any) => {
 
 /**
  * 修改商品分类
- * @param data 
- * @param options 
- * @returns 
+ * @param data
+ * @param options
+ * @returns
  */
 export const updateGoodsCategory = (data?: any, options?: any) => {
   return http.put(`/admin/goods-manage/category`, data, options);
@@ -199,8 +205,8 @@ export const updateGoodsCategory = (data?: any, options?: any) => {
 
 /**
  * 删除商品分类
- * @param id 
- * @returns 
+ * @param id
+ * @returns
  */
 export const deleteGoodsCategory = (id: number) => {
   return http.delete(`/admin/goods-manage/category/${id}`);
@@ -208,17 +214,17 @@ export const deleteGoodsCategory = (id: number) => {
 
 /**
  * 查询单个商品分类
- * @param id 
- * @returns 
+ * @param id
+ * @returns
  */
- export const getGoodsCategory = (id: number) => {
+export const getGoodsCategory = (id: number) => {
   return http.get(`/admin/goods-manage/category/${id}`);
 };
 
 /**
  * 根据级别查询商品分类
- * @param data 
- * @returns 
+ * @param data
+ * @returns
  */
 export const getGoodsCategoryByLevel = (data: any) => {
   return http.get(`/admin/goods-manage/category/level`, data);
@@ -226,8 +232,8 @@ export const getGoodsCategoryByLevel = (data: any) => {
 
 /**
  * 订单列表
- * @param data 
- * @returns 
+ * @param data
+ * @returns
  */
 export const getOrders = (data: any) => {
   return http.get(`/admin/order-manage/order/list`, data);
@@ -235,8 +241,8 @@ export const getOrders = (data: any) => {
 
 /**
  * 更新订单
- * @param data 
- * @returns 
+ * @param data
+ * @returns
  */
 export const updateOrder = (data: any) => {
   return http.put(`/admin/order-manage/order`, data);
@@ -244,8 +250,8 @@ export const updateOrder = (data: any) => {
 
 /**
  * 订单详情
- * @param data 
- * @returns 
+ * @param data
+ * @returns
  */
 export const getOrderDetail = (orderId: number) => {
   return http.get(`/admin/order-manage/order/${orderId}`);
@@ -253,8 +259,8 @@ export const getOrderDetail = (orderId: number) => {
 
 /**
  * 公共上传
- * @param data 
- * @returns 
+ * @param data
+ * @returns
  */
 export const commonUpload = (data?: any) => {
   return http.post(`/admin/upload/file`, data, {

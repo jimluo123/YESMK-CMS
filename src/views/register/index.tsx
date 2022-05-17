@@ -8,7 +8,7 @@ import {
   SafetyCertificateOutlined,
 } from "@ant-design/icons";
 import styles from "./index.module.less";
-import { login } from "@/api";
+import { register } from "@/api";
 import { setToken } from "@/utils/utils";
 import VerifyCode from "@/components/VerifyCode";
 import { useHistory } from "react-router-dom";
@@ -16,7 +16,9 @@ import url from "url";
 
 type SubmitValues = {
   userName: string;
+  userAccount: string;
   password: string;
+  confirmPassword: string;
   verifyCode: string;
   remember: boolean;
 };
@@ -44,7 +46,7 @@ const Register: FC = (): ReactElement => {
     try {
       const {
         data: { token },
-      } = await login(values);
+      } = await register(values);
       setToken(token);
       history.push(redirect || "/dashboard");
       setLoading(false);
@@ -84,6 +86,21 @@ const Register: FC = (): ReactElement => {
           />
         </Form.Item>
         <Form.Item
+          name="userAccount"
+          rules={[
+            {
+              required: true,
+              message: "请输入账户",
+            },
+          ]}
+        >
+          <Input
+            size="large"
+            prefix={<UserOutlined className="site-form-item-icon" />}
+            placeholder="账户"
+          />
+        </Form.Item>
+        <Form.Item
           name="password"
           rules={[
             {
@@ -102,7 +119,7 @@ const Register: FC = (): ReactElement => {
           />
         </Form.Item>
         <Form.Item
-          name="password"
+          name="confirmPassword"
           rules={[
             {
               required: true,
