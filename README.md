@@ -1,143 +1,70 @@
-# pinxixi-admin
-## 系统简介
-拼西西商城后台管理系统，主要基于React16.8及ts相关技术栈开发。商城已实现功能模块有：首页看板、首页管理、商品管理、订单管理、账号管理等。
-### 技术栈
-+ React（hook）
-+ Antd
-+ Typescript
+# Getting Started with Create React App
 
-<br/>
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## 在线体验
-+ [后台管理系统](http://119.29.134.117:3001/)（admin / 123456）
-+ [H5客户端](http://119.29.134.117:3000/)（pxx / 123456）
+## Available Scripts
 
-<br/>
+In the project directory, you can run:
 
-## 开发
-### 安装依赖
+### `npm start`
 
-```bash
-# with npm
-npm install
-# or with yarn
-yarn start
-```
-### 启动
-```bash
-# with npm
-npm run start
-# or with yarn
-yarn start
-```
-### 本地打包
-```bash
-# with npm
-npm run build
-# or with yarn
-yarn build
-```
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-<br />
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-## 功能模块
+### `npm test`
 
-- 用户管理
-  - 管理员登录/登出
-  - 修改管理员信息
-- Dashboard
-  - 图表（静态数据，后台TODO）
-  - 最新订单
-- 首页管理
-  - 首页轮播
-    - 新增
-    - 编辑
-    - 上/下架
-    - 删除
-  - 首页推荐
-    - 查询
-    - 新增
-    - 编辑
-    - 删除
-- 商品管理
-  - 商品列表
-    - 查询
-    - 新增
-    - 编辑
-    - 上/下架
-    - 删除
-  - 商品分类
-    - 查询
-    - 新增
-    - 编辑
-    - 删除
-- 订单管理
-  - 订单列表
-    - 订单详情
-    - 关闭订单
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-<br />
+### `npm run build`
 
-## 项目演示(部分)
-<div>
-  <img src="demo/login.png" style="margin:4px" width="300">
-  <img src="demo/dashboard.png" style="margin:4px" width="300">
-</div>
-<div>
-  <img src="demo/carousel.png" style="margin:4px" width="300">
-  <img src="demo/category.png" style="margin:4px" width="300">
-</div>
-<div>
-  <img src="demo/edit.png" style="margin:4px" width="300">
-  <img src="demo/user.png" style="margin:4px" width="300">
-</div>
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-<br />
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-## 部署
->使用Jenkins自动化部署到远程服务器。
-### Jenkins 执行shell配置
-```bash
-node -v &&
-npm install chromedriver --chromedriver_cdnurl=http://cdn.npm.taobao.org/dist/chromedriver &&
-npm install &&
-npm run build
-```
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-<br/>
+### `npm run eject`
 
-## 设置路径别名
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-- 在根目录下创建 paths.json 文件，内容如下：
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-```bash
-{
-  "compilerOptions": {
-    "paths": {
-      "@/*": ["./src/*"]
-    }
-  }
-}
-```
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-- 在 tsconfig.json 中配置 extends 引入上面创建的 paths.json 文件
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-```bash
-{
-  "compilerOptions":{
-    ...
+## Learn More
 
-    "extends": "./paths.json"
-  }
-}
-```
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-<br />
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-## 问题记录
-- the module of react-router-dom should use "require" to import
-- ant 的 menu 设置 openKeys 和 defaultOpenKeys 智能二选一，一旦设置了 openKeys，手动展开菜单将会失效，需要结合 onOpenChange 手动控制
-- 图片放在 public 里
-- 上传组件的 onRemove 回调里要 return false，否则会出现提交表单时图片没有移除，还变成了 file 对象类型的值。(没找到原因...)
-- 自定义 hook 里定义的对象类型设置为 any，否则会出现 ts 报错，property xxx does not exits on type xxx
-- 富文本组件 RichText 在 onChange 的时候传回父组件的值是 EditorState 类型的对象，需要在表单提交的时候调用 toHTML()转成 HTML。（尝试过在 RichText 组件 onChange 先调用 toHTML()后再传回父组件，但再配合 BraftEditor.createEditorState 时会有其他问题。。。）
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

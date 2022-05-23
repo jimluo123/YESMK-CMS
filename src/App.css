@@ -9,39 +9,39 @@
   background: rgba(0, 0, 0, 0.3);
 }
 
-.ant-select{
+.ant-select {
   min-width: 120px;
   max-width: 204px;
 }
 
-.ant-select-dropdown{
-  width: auto!important;
+.ant-select-dropdown {
+  width: auto !important;
 }
 
-.ant-form-item-control-input-content .ant-input-affix-wrapper{
+.ant-form-item-control-input-content .ant-input-affix-wrapper {
   line-height: 1;
 }
 
-.ml-10{
+.ml-10 {
   margin-left: 10px;
 }
 
-.mr-10{
+.mr-10 {
   margin-right: 10px;
 }
 
-.ml-20{
+.ml-20 {
   margin-left: 20px;
 }
 
-.mr-20{
+.mr-20 {
   margin-right: 20px;
 }
 
 /* 商品-编辑：富文本编辑器 */
-.rich-text .bf-content{
+.rich-text .bf-content {
   height: 300px;
 }
-.ant-table-thead > tr > th{
-  background-color: #fff!important;
+.ant-table-thead > tr > th {
+  background-color: #fff !important;
 }
